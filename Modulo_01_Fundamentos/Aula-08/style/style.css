@@ -1,0 +1,61 @@
+body {
+  padding: 10px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+h3 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.dados-pessoais {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.dados-contato {
+  margin-left: 30px;
+  list-style-type: disc;
+}
+
+.emphasis {
+  font-weight: bold;
+  color: darkgreen;
+}
+
+table,
+tr,
+td,
+th {
+  padding: 5px;
+  border: 1px solid gray;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+th {
+  background-color: #ddd;
+  font-weight: bold;
+}
+
+.dados-foto {
+  min-width: 100px;
+  min-height: 100px;
+  max-width: 100px;
+  max-height: 100px;
+}
