@@ -1,112 +1,90 @@
-var globalNames = ['Um', 'Dois', 'Três', 'Quatro'];
-var globalInputName = null;
-var isEditing = false;
-var globalCurrentIndex = null;
+'use strict';
+// var X let
 
-start();
+// var tem o escopo mais abrangente
+// let tem o escopo reduzido
 
-function start() {
-  preventFormSubmit();
-  globalInputName = document.querySelector('#inputName');
-  activateInput();
-  render();
+withVar();
+withLet();
+
+function withVar() {
+  for (var i = 0; i < 20; i++) {
+    console.log('var ' + i);
+  }
+  i = 20;
+  console.log('var ' + i);
 }
 
-function preventFormSubmit() {
-  function handleFormSubmit(event) {
-    event.preventDefault();
+function withLet() {
+  for (let a = 0; a < 20; a++) {
+    console.log('let ' + a);
   }
-
-  var form = document.querySelector('form');
-  form.addEventListener('submit', handleFormSubmit);
+  /*a = 20;
+  console.log('let ' + i);*/
 }
 
-function activateInput() {
-  function handleTyping(event) {
-    var hasText = !!event.target.value && event.target.value.trim() !== '';
+// const - não podemos reatribuir valores
 
-    if (event.key !== 'Enter') {
-      return;
-    }
+// const c = 10;
+// c = 20;
 
-    if (!hasText) {
-      clearInput();
-      return;
-    }
+// Mas podemos usar uma constante com array ou objeto, desse forma ele permite
+// adicionar valores a msm.
 
-    if (!isEditing) {
-      insertName(event.target.value);
-    } else {
-      updateName(event.target.value);
-    }
-    isEditing = false;
-    render();
-  }
+const d = [];
+console.log(d);
 
-  function updateName(newName) {
-    globalNames[globalCurrentIndex] = newName;
-  }
+d.push(1);
+console.log(d);
 
-  function insertName(newName) {
-    globalNames.push(newName);
-  }
+// funcoes com arrow function
 
-  globalInputName.focus();
-  globalInputName.addEventListener('keyup', handleTyping);
+// Função convencional
+function sum(a, b) {
+  return a + b;
 }
 
-function render() {
-  function createDeleteButton(index) {
-    function deleteName() {
-      globalNames.splice(index, 1);
-      render();
-    }
+// Função anomina
 
-    var button = document.createElement('button');
-    button.classList.add('deleteButton');
-    button.classList.add('clickable');
-    button.textContent = 'X';
+const sum2 = function (a, b) {
+  return a + b;
+};
 
-    button.addEventListener('click', deleteName);
-    return button;
-  }
+// Arrow Function normal
+const sum3 = (a, b) => {
+  return a + b;
+};
 
-  function createSpanContent(name, index) {
-    function editItem() {
-      globalInputName.value = name;
-      globalInputName.focus();
-      isEditing = true;
-      globalCurrentIndex = index;
-    }
+// Arrow Function reduzida
 
-    var span = document.createElement('span');
-    span.textContent = name;
-    span.classList.add('clickable');
-    span.addEventListener('click', editItem);
-    return span;
-  }
+const sum4 = (a, b) => a + b;
 
-  var divNames = document.querySelector('#names');
-  var ul = document.createElement('ul');
-  for (var index = 0; index < globalNames.length; index++) {
-    var currentName = globalNames[index];
+console.log(sum(1, 2));
+console.log(sum2(1, 2));
+console.log(sum3(1, 2));
+console.log(sum4(1, 2));
 
-    var button = createDeleteButton(index);
-    var span = createSpanContent(currentName, index);
+// template literal's
 
-    var li = document.createElement('li');
-    li.appendChild(button);
-    li.appendChild(span);
+const name = 'Adriano';
+const surname = 'Ament';
 
-    ul.appendChild(li);
-  }
+// concatenação normal
+const text1 = 'Meu nome é: ' + name + ' ' + surname;
 
-  divNames.innerHTML = '';
-  divNames.appendChild(ul);
-  clearInput();
-}
+// concatenação com template literal's
+const text2 = `Meu nome é: ${name} ${surname}`;
+console.log(text1);
+console.log(text2);
 
-function clearInput() {
-  globalInputName.value = '';
-  globalInputName.focus();
-}
+// Funcao com parametro e valor padrao
+
+// Sem valor padrão
+const sum5 = (a, b) => a + b;
+console.log(sum5(5));
+
+// com valor padrão
+// os valores padroes so devem ser colocados no primeiro quando todos os
+// recebem valores padroes, caso contrario não funciona.
+const sum6 = (a, b = 10) => a + b;
+console.log(sum6(5));

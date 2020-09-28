@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trabalho Prático 01</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="center">Super Calculadora</h1>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="iptNumeroA" type="number" class="validate" />
+          <label for="iptNumeroA">Primeiro numero (A)</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="iptNumeroB" type="number" class="validate" />
+          <label for="iptNumeroB">Segundo Numero (B)</label>
+        </div>
+      </div>
+      <h2 class="center">Calculos</h2>
+      <div id="calculos"></div>
+      <script defer src="./js/script.js"></script>
+    </div>
+  </body>
+</html>
