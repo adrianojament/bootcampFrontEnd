@@ -8,8 +8,8 @@ const API_COUNTRIES = 'https://restcountries.eu/rest/v2/all';
 let tabCountries = null;
 let tabFavorites = null;
 
-let allCountries = null;
-let favoriteCountries = null;
+let allCountries = [];
+let favoriteCountries = [];
 
 let countCountries = 0;
 let countFavorites = 0;
@@ -35,15 +35,21 @@ const fetchCountries = async () => {
           id,
           name: translations.br,
           population,
+          formatedPopulation: formatNumber(population),
           flag,
         };
       }
     );
 
+    sortCountries(allCountries);
     render();
   } catch (error) {
     console.log(`error: ${error}`);
   }
+};
+
+const sortCountries = (listCountries) => {
+  listCountries.sort((a, b) => a.name.localeCompare(b.name));
 };
 
 const render = () => {
@@ -54,24 +60,84 @@ const render = () => {
 };
 
 const renderCountriesList = () => {
-  let countriesHTML = '<div>';
+  renderData(allCountries, tabCountries, { colorBackGround: '', caption: '+' });
+};
 
-  allCountries.forEach(({ name, flag, id, population }) => {
+const renderData = (listCountries, divData, configButton) => {
+  let countriesHTML = '<div>';
+  let { colorBackGround, caption } = configButton;
+
+  listCountries.forEach(({ name, flag, id, formatedPopulation }) => {
     const countryHTML = `
-      <div class='country> 
+      <div class="country"> 
          <div>
+         <a id="${id}" class="waves-effect waves-light btn ${colorBackGround}">${caption}</a>
          </div>
          <div>
+         <img src="${flag}" alt="${name}">
          </div>
          <div>
+         <ul>
+          <li>${name}</li>
+          <li>${formatedPopulation}</li>
+         </ul>
          </div>
       </div>
     `;
+    countriesHTML += countryHTML;
+  });
+  countriesHTML += '</div>';
+
+  divData.innerHTML = countriesHTML;
+};
+const renderFavorites = () => {
+  renderData(favoriteCountries, tabFavorites, {
+    colorBackGround: 'red darken-4',
+    caption: '-',
   });
 };
-const renderFavorites = () => {};
-const renderSummary = () => {};
-const handleCountryButtons = () => {};
+
+const renderSummary = () => {
+  SummaryData(allCountries, countCountries, totalPopulationList);
+  SummaryData(favoriteCountries, countFavorites, totalPopulationFavorites);
+};
+
+const SummaryData = (listCountries, divCount, divTotal) => {
+  divCount.textContent = formatNumber(listCountries.length);
+  let totalPopulation = listCountries.reduce((accumulator, current) => {
+    return accumulator + current.population;
+  }, 0);
+
+  divTotal.textContent = formatNumber(totalPopulation);
+};
+
+const handleCountryButtons = () => {
+  InsertActionsAllButtons(tabCountries, addToFavorites);
+  InsertActionsAllButtons(tabFavorites, removeFromFavorites);
+};
+
+const InsertActionsAllButtons = (div, nameFunction) => {
+  let buttons = Array.from(div.querySelectorAll('.btn'));
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => nameFunction(button.id));
+  });
+};
+
+const addToFavorites = (id) => {
+  const countryToAdd = allCountries.find((country) => country.id === id);
+  favoriteCountries = [...favoriteCountries, countryToAdd];
+  sortCountries(favoriteCountries);
+  allCountries = allCountries.filter((country) => country.id !== id);
+  render();
+};
+
+const removeFromFavorites = (id) => {
+  const countryToAdd = favoriteCountries.find((country) => country.id === id);
+  allCountries = [...allCountries, countryToAdd];
+  sortCountries(allCountries);
+  favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
+  render();
+};
 
 const setVariablesofApplication = () => {
   tabCountries = document.querySelector('#tabCountries');
@@ -86,4 +152,8 @@ const setVariablesofApplication = () => {
   );
 
   numberFormat = Intl.NumberFormat('pt-BR');
+};
+
+const formatNumber = (number) => {
+  return numberFormat.format(number);
 };

@@ -1,0 +1,76 @@
+body {
+  max-width: 120rem;
+}
+.options {
+  display: flex;
+  flex-direction: column;
+}
+
+.options-items {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.option-language {
+  padding: 10px;
+}
+
+.options-conditional {
+  display: flex;
+  margin-left: auto;
+  order: 2;
+}
+
+.option-conditional {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.picture {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  margin-left: 1px;
+  border-radius: 50%;
+}
+
+.imagem-language {
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+
+.devs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagens {
+  display: flex;
+  flex-direction: row;
+}
+
+.dev-card {
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  padding: 4px;
+  margin: 4px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.data {
+  margin-left: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
