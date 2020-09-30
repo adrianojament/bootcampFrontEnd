@@ -19,27 +19,12 @@
           <input id="iptNome" type="text" class="validate" />
           <label for="iptNome">Pesquisa por nome</label>
         </div>
-        <div id="optionsLanguages" class="options-items">
-          <div class="options-items">
-            <p class="option-language">
-              <label>
-                <input type="checkbox" />
-                <span>Java</span>
-              </label>
-            </p>
-            <p class="option-language">
-              <label>
-                <input type="checkbox" />
-                <span>JavaScript</span>
-              </label>
-            </p>
-            <p class="option-language">
-              <label>
-                <input type="checkbox" />
-                <span>Python</span>
-              </label>
-            </p>
+        <div class="options-items">
+          <div id="optionsLanguages" >         
           </div>        
+          <div id="optionsConditions" class="options-conditional">         
+          </div>        
+        </div>  
       </div>      
       <div id="idContainerloading" class="center">        
         <div id="idLoading">
@@ -48,7 +33,7 @@
         <h5 id="idMessageData">Buscando dados. Aguarde.</h5>
       </div>
       <div id="idData" hidden>
-        <h5 id="totaldevs">00 dev(s) encontrado(s)</h3>      
+        <h5 id="totaldevs"><span id="idTotal"></span> dev(s) encontrado(s)</h3>      
           <div class="row" id="idListItems">
           </div>      
       </div>      
