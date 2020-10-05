@@ -1,0 +1,15 @@
+<p *ngIf="!winner">Jogador Atual: {{ currentPlayer }}</p>
+<p *ngIf="winner">
+  Vencedor: <strong>{{ winner }}</strong>
+</p>
+<p><button (click)="reset()">Reiniciar a partida</button></p>
+<table>
+  <tbody>
+    <tr *ngFor="let row of [0, 1, 2]">
+      <td *ngFor="let col of [0, 1, 2]" (click)="processPlay(row, col)">
+        {{ board[row][col] }}
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="Erro">{{ error }}</p>

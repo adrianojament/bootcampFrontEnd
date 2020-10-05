@@ -1,0 +1,4 @@
+<p>Titulo {{ titulo }}</p>
+<p>Contator {{ valor }}</p>
+<button [disabled]="valor >= 10" (click)="increment()">Incrementar</button>
+<button [disabled]="valor <= -10" (click)="decrement()">Decrementar</button>

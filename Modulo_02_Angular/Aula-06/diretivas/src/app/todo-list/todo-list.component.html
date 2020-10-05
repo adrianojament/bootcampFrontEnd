@@ -1,0 +1,36 @@
+<h1>TodoList</h1>
+
+<div>
+  <input
+    #inputDescription
+    type="text"
+    name="iptTodo"
+    id="iptTodo"
+    placeholder="Informe a Tarefa"
+  />
+  <button (click)="addTask(inputDescription.value)">Adicionar a tarefa</button>
+</div>
+
+<div>
+  <table>
+    <tr *ngFor="let task of tasks; let i = index">
+      <ng-container *ngIf="!task.done">
+        <td>
+          <input type="checkbox" [checked]="task.done" />
+        </td>
+        <td>
+          {{ task.description }}
+        </td>
+        <td>
+          <button (click)="removeTask(i)">Excluir</button>
+        </td>
+      </ng-container>
+    </tr>
+  </table>
+</div>
+<div [ngSwitch]="tasks.length">
+  <h4>Qtd de Tarefas do dia</h4>
+  <div *ngSwitchCase="0">Nenhuma Tarefa</div>
+  <div *ngSwitchCase="1">Uma tarefa</div>
+  <div *ngSwitchDefault>{{ tasks.length }} tarefa</div>
+</div>
