@@ -1,0 +1,14 @@
+<h2>Componente C1</h2>
+
+<p>
+  Tamanho
+  <input type="number" name="iptNumber" id="iptNumber" [(ngModel)]="boxSize" />
+</p>
+
+<div>
+  <div [class.box]="true" [class.borderRed]="true"></div>
+  <div class="box"></div>
+  <div class="box" [style.width.px]="boxSize"></div>
+</div>
+
+<app-c2></app-c2>

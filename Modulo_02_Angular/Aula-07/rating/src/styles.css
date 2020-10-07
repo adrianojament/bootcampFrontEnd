@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+table {
+  border-spacing: 0;
+}
+
+td {
+  border-top: 1px solid black;
+  padding: 4px;
+}
+
+.rating {
+  color: gold;
+  cursor: pointer;
+}

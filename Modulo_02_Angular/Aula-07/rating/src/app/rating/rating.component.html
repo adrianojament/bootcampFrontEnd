@@ -1,0 +1,7 @@
+<!-- {{ rating }} -->
+<span
+  *ngFor="let i of [0, 1, 2, 3, 4, 5]"
+  class="material-icons rating"
+  (click)="onClick(i)"
+  >{{ rating >= i ? "star" : "star_outline" }}
+</span>

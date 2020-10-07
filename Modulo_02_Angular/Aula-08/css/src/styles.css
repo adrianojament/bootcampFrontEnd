@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.box {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  background-color: aqua;
+  border: 2px solid gray;
+  margin-right: 1rem;
+}
