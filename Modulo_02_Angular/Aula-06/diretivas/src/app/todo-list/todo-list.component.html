@@ -2,13 +2,13 @@
 
 <div>
   <input
-    #inputDescription
+    [(ngModel)]="newTask"
     type="text"
     name="iptTodo"
     id="iptTodo"
     placeholder="Informe a Tarefa"
   />
-  <button (click)="addTask(inputDescription.value)">Adicionar a tarefa</button>
+  <button (click)="addTask()">Adicionar a tarefa</button>
 </div>
 
 <div>
@@ -16,7 +16,7 @@
     <tr *ngFor="let task of tasks; let i = index">
       <ng-container *ngIf="!task.done">
         <td>
-          <input type="checkbox" [checked]="task.done" />
+          <input type="checkbox" [(ngModel)]="task.done" />
         </td>
         <td>
           {{ task.description }}
