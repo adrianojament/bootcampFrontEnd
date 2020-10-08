@@ -1,0 +1,20 @@
+img {
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.spaces {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding-top: 5px;
+}
+
+.spaces-btn {
+  padding-left: 2px;
+}
+
+.mousePointer {
+  cursor: pointer;
+}
