@@ -1,0 +1,62 @@
+<div>
+  <div>
+    <label for="inpExercises">
+      Exercicio:
+      <input type="inpExercises" [(ngModel)]="exercise.name" />
+    </label>
+  </div>
+  <div>
+    <label for="inpDuration">
+      Duração:
+      <input type="inpDuration" type="number" [(ngModel)]="exercise.duration" />
+    </label>
+  </div>
+  <div>
+    <label for="inpRepetitions">
+      Repetições:
+      <input
+        type="inpRepetitions"
+        type="number"
+        [(ngModel)]="exercise.repetitions"
+      />
+    </label>
+  </div>
+  <div>
+    <label for="inpPreparation">
+      Preparação:
+      <input
+        type="inpPreparation"
+        type="number"
+        [(ngModel)]="exercise.preparations"
+      />
+    </label>
+  </div>
+  <div>
+    <label for="inpRest">
+      Descanso:
+      <input type="inpRest" type="number" [(ngModel)]="exercise.rest" />
+    </label>
+  </div>
+  <button (click)="add()">Adicionar</button>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Exercicio</th>
+      <th>Duração</th>
+      <th>Repetições</th>
+      <th>Preparação</th>
+      <th>Descanso</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ex of exercises; let i = index">
+      <td>{{ ex.name }}</td>
+      <td>{{ ex.duration }}</td>
+      <td>{{ ex.repetitions }}</td>
+      <td>{{ ex.preparations }}</td>
+      <td>{{ ex.rest }}</td>
+      <td><button (click)="remove(i)">Excluir</button></td>
+    </tr>
+  </tbody>
+</table>
