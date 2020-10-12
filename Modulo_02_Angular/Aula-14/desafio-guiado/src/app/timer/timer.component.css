@@ -1,0 +1,27 @@
+:host {
+  display: block;
+  text-align: center;
+}
+
+.timerleft {
+  font-size: 2rem;
+}
+
+/* Elemento apos o outro */
+button ~ button {
+  margin-left: 4px;
+}
+div ~ div {
+  margin-top: 4px;
+}
+/* Elemento apos o outro */
+
+.phase0 {
+  color: blueviolet;
+}
+.phase1 {
+  color: green;
+}
+.phase2 {
+  color: gold;
+}

@@ -1,0 +1,23 @@
+<h3>Formularios</h3>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <label for="inpName">
+    Nome
+    <input formControlName="name" type="text" name="inpName" id="inpName" />
+  </label>
+  <div *ngIf="myForm.get('name').errors?.required">
+    Este campo deve ser preenchido
+  </div>
+  <div *ngIf="myForm.get('name').errors?.forbiddenName">Nome Invalido</div>
+  <label for="inpAddress">
+    Endereço
+    <input
+      formControlName="address"
+      type="text"
+      name="inpAddress"
+      id="inpAddress"
+    />
+  </label>
+  <button [disabled]="myForm.status !== 'VALID'" type="submit">Salvar</button>
+</form>
+<p>{{ myForm.status | json }}</p>
+<p>{{ myForm.value | json }}</p>

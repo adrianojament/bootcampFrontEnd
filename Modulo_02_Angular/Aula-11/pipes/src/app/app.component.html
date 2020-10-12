@@ -1,0 +1,28 @@
+<h3>Pipes</h3>
+<p>Texto: {{ text }}</p>
+<p>Texto com pipe: {{ text | lowercase }}</p>
+<p>Texto com pipe: {{ text | uppercase }}</p>
+<p>Numero sem formatacao: {{ value }}</p>
+<p>Numero com formatacao padrao americano: {{ value | number: "5.1-3" }}</p>
+<p>
+  Numero com formatacao padrao brasileiro: {{ value | number: "5.1-3":"pt" }}
+</p>
+<p>Data: {{ today }}</p>
+<p>Data com pipe medium: {{ today | date: "medium" }}</p>
+<p>Data com pipe short: {{ today | date: "short" }}</p>
+<p>Data com pipe Formato data: {{ today | date: "dd/MM/yyyy" }}</p>
+<p>Data com pipe Formato AnoMes: {{ today | date: "yyyyMM" }}</p>
+<p>CEP criação de pipe: {{ myCep }}</p>
+<p>CEP criação de pipe: {{ myCep | cep }}</p>
+<p>CPF criação de pipe: {{ myCPF }}</p>
+<p>CPF criação de pipe: {{ myCPF | cpf }}</p>
+<h3>Impure pipe</h3>
+<input #ipt placeholder="Uma string" type="text" /><button
+  (click)="addString(ipt.value)"
+>
+  +
+</button>
+<ul>
+  <li *ngFor="let value of Strings">{{ value }}</li>
+</ul>
+<p>Array formatado: {{ Strings | joinStrings: ", " }}</p>

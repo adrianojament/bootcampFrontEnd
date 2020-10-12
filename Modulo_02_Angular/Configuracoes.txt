@@ -1,0 +1,13 @@
+- Criar projeto
+Sem Teste
+ng new diretivas -v --skip-install --skip-tests
+Com Teste
+ng new galeria-fotos -v --skip-install
+Criar com rotas
+ng new diretivas -v --skip-install --skip-tests --routing
+
+- Criar Componente
+ng generate component GaleriaComponent
+
+- Criação de Pipes
+ng generate pipe joinStrings
