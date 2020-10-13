@@ -1,0 +1,19 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "name": "Adriano Jose Ament",
+      "phone": "19 988095545"
+    },
+    {
+      "id": 2,
+      "name": "Juliana",
+      "phone": "19 987102311"
+    },
+    {
+      "id": 3,
+      "name": "Cassiel",
+      "phone": "19 98723150"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+  <span>Contatos</span>
+</mat-toolbar>
+
+<mat-nav-list>
+  <mat-list-item *ngFor="let contact of contacts">
+    <a matLine [routerLink]="['/contacts', contact.id]">{{
+      contact.name
+    }}</a>
+    <button (click)="remove(contact)" mat-icon-button>
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-list-item>
+</mat-nav-list>
+<a
+  class="create"
+  routerLink="/contacts/create"
+  mat-mini-fab
+  color="primary"
+  aria-label="Adicionar um novo Contato"
+>
+  <mat-icon>add</mat-icon>
+</a>

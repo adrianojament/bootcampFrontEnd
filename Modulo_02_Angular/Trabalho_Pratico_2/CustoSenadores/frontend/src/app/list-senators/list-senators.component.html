@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <span>Despesas dos Senadores (2019)</span>
+</mat-toolbar>
+<mat-nav-list>
+  <mat-list-item *ngFor="let senator of listSenators">
+    <a matLine [routerLink]="['/senator', senator.id]">{{
+      senator.nomeSenador
+    }}</a>
+  </mat-list-item>
+</mat-nav-list>

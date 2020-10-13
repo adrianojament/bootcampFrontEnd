@@ -11,3 +11,6 @@ ng generate component GaleriaComponent
 
 - Criação de Pipes
 ng generate pipe joinStrings
+
+- Criação de Serviços
+ng generate service joinStrings

@@ -1,0 +1,41 @@
+<h3>Cardapio</h3>
+<form [formGroup]="form" (ngSubmit)="addProduct()">
+  <label for="iptNome">
+    Produto
+    <input
+      formControlName="nome"
+      type="text"
+      id="iptNome"
+      placeholder="Informe o Produto"
+    />
+  </label>
+  <label for="iptPreco">
+    Preço
+    <input
+      formControlName="preco"
+      type="number"
+      id="iptPreco"
+      placeholder="Informe o Preço"
+    />
+  </label>
+  <input [disabled]="form.invalid" type="submit" value="Adicionar" />
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Preço</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let produto of produtos">
+      <td>{{ produto.id }}</td>
+      <td>{{ produto.nome }}</td>
+      <td>{{ produto.preco }}</td>
+      <td><button (click)="removeProduct(produto)">-</button></td>
+    </tr>
+  </tbody>
+</table>
