@@ -1,0 +1,26 @@
+.alignSpaces {
+  flex: 1 1 auto;
+}
+
+.alignIcons {
+  padding: 0 14px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-column-right {
+  text-align: right;
+}
+
+.mat-column-center {
+  text-align: center;
+}
+
+h2 {
+  margin: 0;
+  padding: 16px 22px 8px 22px;
+  font-size: 16px;
+  border-bottom: 2px solid grey;
+}

@@ -1,1 +1,68 @@
-<p>senator-costs works!</p>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Despesas dos Senadores (2019) - {{ nameSenator }} </span>
+    <span class="alignSpaces"></span>
+    <button
+      mat-icon-button
+      aria-label="Voltar para lista de senadores"
+      matTooltip="Voltar para lista de Senadores"
+      routerLink="/"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<h2>Resumo das despesas</h2>
+<!-- displayedColumnsExpensive ['expensive', 'value']; -->
+<!-- listResumeExpensive -->
+<table mat-table [dataSource]="listResumeExpensive">
+  <ng-container matColumnDef="expensive">
+    <th mat-header-cell *matHeaderCellDef>Despesa</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.expensive }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="value">
+    <th class="mat-column-right" mat-header-cell *matHeaderCellDef>Despesas</th>
+    <td class="mat-column-right" mat-cell *matCellDef="let element">
+      {{ element.value | number: "1.2-2" }}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumnsExpensive"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumnsExpensive"></tr>
+</table>
+
+<h2>Discriminação das despesas</h2>
+<table mat-table [dataSource]="listCost">
+  <!-- Position Column -->
+
+  <ng-container matColumnDef="fornec">
+    <th mat-header-cell *matHeaderCellDef>Fornecedor</th>
+    <td mat-cell *matCellDef="let element">{{ element.fornec }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="tipo">
+    <th mat-header-cell *matHeaderCellDef>Tipo de Despesa</th>
+    <td mat-cell *matCellDef="let element">{{ element.tipo | getExpense }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="data">
+    <th class="mat-column-center" mat-header-cell *matHeaderCellDef>Data</th>
+    <td mat-cell class="mat-column-center" *matCellDef="let element">
+      {{
+        ReturnData(element.ano, element.mes, element.dia) | date: "dd/MM/yyyy"
+      }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="valor">
+    <th class="mat-column-right" mat-header-cell *matHeaderCellDef>Despesas</th>
+    <td class="mat-column-right" mat-cell *matCellDef="let element">
+      {{ element.valor | number: "1.2-2" }}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
